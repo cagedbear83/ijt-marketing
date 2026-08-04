@@ -41,6 +41,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
             <SiteFooter />
           </div>
         </ThemeProvider>
+        <Analytics />
       </body>
     </html>
   );
