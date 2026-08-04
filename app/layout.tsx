@@ -5,7 +5,10 @@ import { ThemeProvider } from "next-themes";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { site } from "@/lib/site";
+// TypeScript sometimes complains about side-effect CSS imports in this project setup.
+// @ts-ignore: allow importing global CSS without type declarations
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({ subsets: ["latin"] });
 
