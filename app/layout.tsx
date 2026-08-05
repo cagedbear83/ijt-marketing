@@ -1,13 +1,23 @@
 import type { ReactNode } from "react";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Chivo, IBM_Plex_Sans } from "next/font/google";
 import { ThemeProvider } from "next-themes";
 import { SiteNav } from "@/components/site-nav";
 import { SiteFooter } from "@/components/site-footer";
 import { site } from "@/lib/site";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const chivo = Chivo({
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
+  variable: "--font-chivo",
+});
+
+const ibmPlexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["400", "500", "600"],
+  variable: "--font-ibm-plex-sans",
+});
 
 export const metadata: Metadata = {
   title: {
@@ -25,7 +35,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={inter.className}>
+      <body className={`${chivo.variable} ${ibmPlexSans.variable} font-body`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
