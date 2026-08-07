@@ -1,11 +1,5 @@
 import { site } from "@/lib/site";
-import { Section, Eyebrow, Button, Check } from "@/components/ui-bits";
-
-const problems = [
-  "Forgetting how many contacts you've logged this week",
-  "Scrambling to rebuild your list if IDES asks for proof",
-  "Filling out the ADJ034F by hand, field by field",
-];
+import { Section, Button, Check } from "@/components/ui-bits";
 
 const steps = [
   {
@@ -17,8 +11,43 @@ const steps = [
     body: "A clear tracker shows how many contacts you've made against your required number for the week.",
   },
   {
-    title: "Generate your ADJ034F",
-    body: "One click fills the official Illinois work-search record so you're ready if IDES asks.",
+    title: "Generate your work-search log",
+    body: "One click fills the official Illinois work-search record so you're ready when IDES asks.",
+  },
+];
+
+const benefits = [
+  {
+    title: "Built for the ADJ034F",
+    body: "Generates the official Illinois fillable form from the contacts you log — one click, no hand-filling.",
+  },
+  {
+    title: "AI screenshot import",
+    body: "Paste a job listing screenshot and let the app pull out the employer, position, and date for you.",
+  },
+  {
+    title: "AI resume review",
+    body: "Get AI-powered feedback on your resume to strengthen your job search — available on Pro and Case Worker plans.",
+  },
+  {
+    title: "SMS & email reminders",
+    body: "Get nudged before your weekly deadline so nothing slips. Full reminder schedules on paid plans.",
+  },
+  {
+    title: "Calendar events",
+    body: "Log interviews, follow-ups, and deadlines directly in the app to keep your job search organized.",
+  },
+  {
+    title: "Document storage",
+    body: "Store resumes, cover letters, and supporting documents alongside your work-search records. 100MB on Pro, 1GB on Case Worker.",
+  },
+  {
+    title: "Never lose your record",
+    body: "Every contact is saved, searchable, and exportable. You'll receive advance notice before any records are deleted.",
+  },
+  {
+    title: "Case Worker plan",
+    body: "Managing compliance for multiple claimants? The Case Worker plan gives you unlimited claimant profiles, bulk management tools, and seat-based pricing for your team.",
   },
 ];
 
@@ -28,82 +57,76 @@ export default function HomePage() {
       {/* Hero */}
       <Section className="pt-20 pb-12 text-center">
         <div className="mx-auto max-w-3xl">
-          <Eyebrow>For Illinois unemployment claimants</Eyebrow>
-          <h1 className="mt-4 text-4xl font-bold tracking-tight sm:text-5xl">
-            Stay on top of your weekly work-search requirement
+          <h1 className="mt-4 text-4xl font-black tracking-tighter text-primary sm:text-5xl font-heading">
+            Stay on top of your weekly{" "}
+            <br className="hidden sm:block" />
+            work-search requirement
           </h1>
           <p className="mx-auto mt-5 max-w-2xl text-lg text-muted-foreground">
             {site.tagline}
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button href="/signup">Get started free</Button>
+            <Button href="https://illinoisjobtracker.app/register">
+              Get started free
+            </Button>
             <Button href="/how-it-works" variant="outline">
               See how it works
             </Button>
           </div>
           <p className="mt-4 text-xs text-muted-foreground">
-            Free to start. No credit card required.
+            Free to start. Pro includes a 14-day free trial — no charge until day 15.
           </p>
         </div>
       </Section>
 
       {/* Problem */}
       <Section className="py-12">
-        <div className="rounded-2xl border border-border bg-muted/30 p-8 sm:p-10">
-          <h2 className="text-2xl font-bold tracking-tight">
+        <div className="border border-border bg-surface p-8 sm:p-10">
+          <h2 className="text-2xl font-bold tracking-tight font-heading">
             The weekly job-search log shouldn&apos;t be the stressful part
           </h2>
-          <p className="mt-3 max-w-2xl text-muted-foreground">
-            Missing or losing your work-search record can put your benefits at
-            risk. Most people track it in their head or a messy spreadsheet.
+          <p className="mt-3 max-w-3xl text-muted-foreground">
+            Missing or losing your work-search record can put your benefits at risk. Most people track it in their head or a messy spreadsheet.
           </p>
-          <ul className="mt-6 grid gap-3 sm:grid-cols-3">
-            {problems.map((p) => (
-              <li
-                key={p}
-                className="rounded-lg border border-border bg-background p-4 text-sm text-muted-foreground"
-              >
-                {p}
-              </li>
-            ))}
-          </ul>
         </div>
       </Section>
 
       {/* How it works */}
       <Section className="py-12">
         <div className="text-center">
-          <Eyebrow>How it works</Eyebrow>
-          <h2 className="mt-3 text-3xl font-bold tracking-tight">
+          <h2 className="text-3xl font-black tracking-tight text-primary font-heading">
             Three steps, done in minutes
           </h2>
         </div>
         <div className="mt-10 grid gap-6 md:grid-cols-3">
           {steps.map((s, i) => (
-            <div key={s.title} className="rounded-xl border border-border p-6">
-              <div className="grid h-9 w-9 place-items-center rounded-full bg-primary text-sm font-bold text-primary-foreground">
+            <div key={s.title} className="border border-border p-6">
+              <div className="grid h-9 w-9 place-items-center bg-primary text-sm font-bold text-primary-foreground">
                 {i + 1}
               </div>
-              <h3 className="mt-4 font-semibold">{s.title}</h3>
+              <h3 className="mt-4 font-semibold font-heading">{s.title}</h3>
               <p className="mt-2 text-sm text-muted-foreground">{s.body}</p>
             </div>
           ))}
         </div>
       </Section>
 
-      {/* Value points */}
+      {/* Benefits — all paid features shown */}
       <Section className="py-12">
+        <div className="text-center mb-10">
+          <h2 className="text-3xl font-black tracking-tight text-primary font-heading">
+            Everything in one place
+          </h2>
+          <p className="mt-3 text-muted-foreground">
+            From logging a single contact to staying compliant all week long.
+          </p>
+        </div>
         <div className="grid gap-6 md:grid-cols-2">
-          {[
-            ["Built for the ADJ034F", "Generates the official Illinois fillable form from the contacts you log."],
-            ["AI screenshot import", "Paste a job listing and let the app pull out the details for you."],
-            ["Never lose your record", "Every contact is saved, searchable, and exportable whenever you need it."],
-            ["Reminders that matter", "Get a nudge before your weekly deadline so nothing slips."],
-          ].map(([title, body]) => (
-            <div key={title} className="flex gap-3 rounded-xl border border-border p-6">
+          {benefits.map(({ title, body }) => (
+            <div key={title} className="flex gap-3 border border-border p-6">
               <Check />
               <div>
-                <h3 className="font-semibold">{title}</h3>
+                <h3 className="font-semibold font-heading">{title}</h3>
                 <p className="mt-1 text-sm text-muted-foreground">{body}</p>
               </div>
             </div>
@@ -111,18 +134,52 @@ export default function HomePage() {
         </div>
       </Section>
 
+      {/* Plans snapshot */}
+      <Section className="py-12">
+        <div className="text-center mb-8">
+          <h2 className="text-3xl font-black tracking-tight text-primary font-heading">
+            Pick the plan that fits
+          </h2>
+          <p className="mt-3 text-muted-foreground">
+            Start free. Upgrade to Pro for $9.99/mo or $95.99/yr. Case Worker plans start at $19.99/mo.
+          </p>
+        </div>
+        <div className="flex flex-wrap justify-center gap-4">
+          <div className="border border-border p-6 w-64">
+            <div className="font-black text-lg font-heading">Free</div>
+            <div className="text-3xl font-black mt-2 font-heading">$0</div>
+            <p className="text-xs text-muted-foreground mt-1">forever</p>
+            <p className="text-sm text-muted-foreground mt-3">Log contacts and track your weekly requirement.</p>
+          </div>
+          <div className="border-2 border-primary p-6 w-64">
+            <div className="font-black text-lg font-heading text-primary">Pro</div>
+            <div className="text-3xl font-black mt-2 font-heading">$9.99<span className="text-base font-normal text-muted-foreground">/mo</span></div>
+            <p className="text-xs text-muted-foreground mt-1">or $95.99/yr — 14-day free trial</p>
+            <p className="text-sm text-muted-foreground mt-3">Full history, exports, AI tools, reminders, and more.</p>
+          </div>
+          <div className="border border-border p-6 w-64">
+            <div className="font-black text-lg font-heading">Case Worker</div>
+            <div className="text-3xl font-black mt-2 font-heading">$19.99<span className="text-base font-normal text-muted-foreground">/mo</span></div>
+            <p className="text-xs text-muted-foreground mt-1">first seat · additional seats $12.99/mo</p>
+            <p className="text-sm text-muted-foreground mt-3">Manage unlimited claimants across your team.</p>
+          </div>
+        </div>
+        <div className="mt-8 text-center">
+          <Button href="/pricing">See full pricing</Button>
+        </div>
+      </Section>
+
       {/* CTA */}
       <Section className="py-16">
-        <div className="rounded-2xl bg-primary px-8 py-12 text-center text-primary-foreground">
-          <h2 className="text-3xl font-bold tracking-tight">
+        <div className="bg-primary px-8 py-12 text-center text-primary-foreground">
+          <h2 className="text-3xl font-black tracking-tight font-heading">
             Ready to take the stress out of work-search reporting?
           </h2>
           <p className="mx-auto mt-3 max-w-xl opacity-90">
-            Start free today. Upgrade whenever you want one-click forms and
-            unlimited contacts.
+            Start free today. Pro includes a 14-day free trial — upgrade whenever you're ready.
           </p>
           <div className="mt-6">
-            <Button href="/signup" variant="outline">
+            <Button href="https://illinoisjobtracker.app/register" variant="outline">
               Create your free account
             </Button>
           </div>

@@ -1,92 +1,142 @@
-import { site } from "@/lib/site";
-import { LegalPage } from "@/components/legal";
+"use client";
 
-export const metadata = { title: "Privacy Policy" };
+import Link from "next/link";
+import { useState } from "react";
+import { plans } from "@/lib/site";
+import { Section, Check } from "@/components/ui-bits";
 
-export default function PrivacyPage() {
+export default function PricingPage() {
+  const [annual, setAnnual] = useState(false);
+
   return (
-    <LegalPage title="Privacy Policy" updated="August 2026">
-      <p>
-        This Privacy Policy explains how {site.company} (&quot;we&quot;) collects,
-        uses, and protects information when you use {site.name} (the
-        &quot;Service&quot;).
-      </p>
+    <>
+      <Section className="pt-16 pb-8">
+        {/* Title — no eyebrow, primary blue, Chivo heading */}
+        <div className="mx-auto max-w-3xl text-center">
+          <h1 className="text-3xl font-black tracking-tight text-primary sm:text-4xl font-heading">
+            Simple, honest pricing
+          </h1>
+          <p className="mt-4 text-lg text-muted-foreground">
+            Start free. Upgrade only when you want the time-savers. Cancel anytime.
+          </p>
+        </div>
 
-      <h2>Information we collect</h2>
-      <ul>
-        <li><strong>Account information:</strong> your email address and password (stored securely, never in plain text).</li>
-        <li><strong>Work-search data:</strong> the employers, positions, dates, and notes you enter to track your contacts.</li>
-        <li><strong>Uploaded content:</strong> screenshots you provide for the AI import feature. These are processed in memory and immediately discarded — never stored.</li>
-        <li><strong>Resume content:</strong> resumes submitted for AI review are transmitted for analysis and immediately discarded. We do not store resume files.</li>
-        <li><strong>Documents:</strong> files you upload to your document storage (Pro: 100MB, Case Worker: 1GB per seat).</li>
-        <li><strong>Payment information:</strong> handled by Stripe. We do not store your full card details. A card fingerprint is retained solely to enforce our one-trial-per-person policy.</li>
-        <li><strong>Usage data:</strong> basic technical information such as device and browser type, used to keep the Service working and secure.</li>
-      </ul>
+        {/* Monthly / Annual toggle */}
+        <div className="mt-8 flex items-center justify-center gap-3">
+          <span className={`text-sm font-medium ${!annual ? "text-foreground" : "text-muted-foreground"}`}>
+            Monthly
+          </span>
+          <button
+            onClick={() => setAnnual((v) => !v)}
+            className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none ${
+              annual ? "bg-primary" : "bg-muted-foreground/30"
+            }`}
+            aria-label="Toggle annual billing"
+          >
+            <span
+              className={`inline-block h-4 w-4 transform rounded-full bg-white shadow transition-transform ${
+                annual ? "translate-x-6" : "translate-x-1"
+              }`}
+            />
+          </button>
+          <span className={`text-sm font-medium ${annual ? "text-foreground" : "text-muted-foreground"}`}>
+            Annual
+            <span className="ml-1.5 rounded-sm bg-primary/10 px-2 py-0.5 text-xs font-semibold text-primary">
+              Save ~20%
+            </span>
+          </span>
+        </div>
+      </Section>
 
-      <h2>How we use information</h2>
-      <ul>
-        <li>To provide the Service — logging contacts, generating your ADJ034F form, reminders, and document storage.</li>
-        <li>To process payments and manage your subscription (Free, Pro, or Case Worker).</li>
-        <li>To enforce our one-trial-per-person policy.</li>
-        <li>To respond to support requests.</li>
-        <li>To protect the Service against fraud and abuse.</li>
-      </ul>
+      <Section className="py-8">
+        <div className="mx-auto grid max-w-5xl gap-6 md:grid-cols-3">
+          {plans.map((plan) => (
+            <div
+              key={plan.id}
+              className={`relative flex flex-col border p-8 ${
+                plan.featured
+                  ? "border-primary border-2"
+                  : "border-border"
+              }`}
+            >
+              {plan.featured && (
+                <span className="absolute -top-3 left-8 bg-primary px-3 py-1 text-xs font-semibold text-primary-foreground">
+                  Most popular
+                </span>
+              )}
 
-      <h2>How we share information</h2>
-      <p>
-        We do not sell your personal information. We share it only with service
-        providers who help us operate the Service (including hosting, email and SMS
-        delivery, AI processing for screenshot import and resume review, and payment
-        processing via Stripe), and only as needed to provide the Service, or when
-        required by law.
-      </p>
+              {/* Plan name + blurb — fixed height so prices align */}
+              <div className="min-h-[4rem]">
+                <h2 className="text-lg font-black tracking-tight font-heading">
+                  {plan.name}
+                </h2>
+                <p className="mt-1 text-sm text-muted-foreground">{plan.blurb}</p>
+              </div>
 
-      <h2>Case Worker accounts</h2>
-      <p>
-        If you are a claimant managed under a Case Worker account, your work-search
-        data is accessible to the case worker and organization managing your account.
-        A signed claimant authorization is required before a case worker may manage
-        your data. You may revoke this authorization at any time by contacting us.
-      </p>
+              {/* Price block — fixed height so all three align */}
+              <div className="mt-6 h-20">
+                <div className="flex items-baseline gap-1">
+                  <span className="text-4xl font-black tracking-tight font-heading text-foreground">
+                    {annual ? plan.annualMonthly : plan.monthlyPrice}
+                  </span>
+                  {plan.id !== "free" && (
+                    <span className="text-sm text-muted-foreground">/ mo</span>
+                  )}
+                </div>
 
-      <h2>Your Illinois privacy rights</h2>
-      <p>
-        We handle personal information consistent with the Illinois Personal
-        Information Protection Act (PIPA). You may request access to or deletion of
-        your account data by contacting us or using the account deletion feature in
-        your settings.
-      </p>
+                {/* Subtitle line — always present, keeps button aligned */}
+                <p className="mt-1 text-xs text-muted-foreground min-h-[1rem]">
+                  {plan.id === "free" && "forever, no credit card required"}
+                  {plan.id !== "free" && annual && `Billed as ${plan.annualPrice}/year`}
+                  {plan.id !== "free" && !annual && "\u00A0"}
+                </p>
 
-      <h2>Data retention</h2>
-      <p>
-        Work-search records are retained for 53 weeks from the end of each benefit
-        week, consistent with IDES&apos;s own record-lookback period. You will receive
-        email reminders before any records are due to be deleted. On account deletion,
-        data is retained for 30 days before permanent removal. GDPR/CCPA erasure
-        requests are processed within 72 hours.
-      </p>
+                {/* Additional seats note for Case Worker */}
+                <p className="mt-0.5 text-xs text-muted-foreground min-h-[1rem]">
+                  {plan.id === "caseworker"
+                    ? annual
+                      ? "Additional seats $129.99/yr each"
+                      : "Additional seats $12.99/mo each"
+                    : "\u00A0"}
+                </p>
+              </div>
 
-      <h2>Security</h2>
-      <p>
-        We use industry-standard safeguards including encrypted connections, secure
-        password storage, single-session enforcement, and account-protection measures.
-        No system is perfectly secure, but we work to protect your information.
-      </p>
+              {/* CTA button — sits at same vertical position across all cards */}
+              <Link
+                href={plan.ctaHref}
+                className={`mt-4 block px-4 py-2.5 text-center text-sm font-semibold transition-colors ${
+                  plan.featured
+                    ? "bg-primary text-primary-foreground hover:bg-primary-hover"
+                    : "border border-border text-foreground hover:bg-surface"
+                }`}
+              >
+                {plan.cta}
+              </Link>
 
-      <h2>Children</h2>
-      <p>The Service is not directed to anyone under 18, and we do not knowingly collect their information.</p>
+              {/* Feature list */}
+              <ul className="mt-6 flex-1 space-y-3">
+                {plan.features.map((f) => (
+                  <li key={f} className="flex gap-2 text-sm">
+                    <Check />
+                    <span>{f}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
 
-      <h2>Changes</h2>
-      <p>We may update this policy and will change the date above when we do.</p>
-
-      <h2>Contact</h2>
-      <p>
-        Questions? Email{" "}
-        <a href={`mailto:${site.supportEmail}`} className="text-foreground underline">
-          {site.supportEmail}
-        </a>
-        .
-      </p>
-    </LegalPage>
+        <p className="mx-auto mt-8 max-w-2xl text-center text-xs text-muted-foreground">
+          Prices in USD. Pro includes a 14-day free trial — card required, cancel
+          before day 15 and you won't be charged. Cancel any paid plan from your
+          account settings at any time and keep features until the end of your
+          billing period. See our{" "}
+          <Link href="/refunds" className="underline hover:text-foreground">
+            Refund Policy
+          </Link>
+          .
+        </p>
+      </Section>
+    </>
   );
 }
