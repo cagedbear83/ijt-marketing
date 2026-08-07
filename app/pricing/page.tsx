@@ -37,8 +37,8 @@ export default function PricingPage() {
               <h2 className="text-lg font-bold">{plan.name}</h2>
               <p className="mt-1 text-sm text-muted-foreground">{plan.blurb}</p>
               <div className="mt-4 flex items-baseline gap-1">
-                <span className="text-4xl font-bold tracking-tight">{plan.price}</span>
-                <span className="text-sm text-muted-foreground">/ {plan.cadence}</span>
+                <span className="text-4xl font-bold tracking-tight">{annual ? plan.annualMonthly : plan.monthlyPrice}</span>
+                <span className="text-sm text-muted-foreground">/ / mo. </span>
               </div>
               <Link
                 href="/signup"
