@@ -5,7 +5,7 @@ export const metadata = { title: "Terms of Service" };
 
 export default function TermsPage() {
   return (
-    <LegalPage title="Terms of Service" updated="July 2026">
+    <LegalPage title="Terms of Service" updated="August 2026">
       <p>
         These Terms govern your use of {site.name} (the &quot;Service&quot;),
         operated by {site.company}. By creating an account or using the Service, you
@@ -31,15 +31,33 @@ export default function TermsPage() {
       <ul>
         <li>You must be at least 18 and provide accurate information.</li>
         <li>You are responsible for keeping your password secure and for activity under your account.</li>
+        <li>Accounts are for individual use. Sharing login credentials is not permitted.</li>
         <li>You may not misuse the Service, attempt to disrupt it, or use it unlawfully.</li>
       </ul>
 
       <h2>Subscriptions and billing</h2>
       <ul>
-        <li>Paid plans are billed in advance through our payment processor on a recurring basis until canceled.</li>
+        <li><strong>Free plan:</strong> available at no cost with limited features.</li>
+        <li><strong>Pro plan:</strong> $9.99/month or $95.99/year. Includes a 14-day free trial. A credit card is required upfront; you will not be charged until the trial ends.</li>
+        <li><strong>Case Worker plan:</strong> $19.99/month for the first seat ($199.99/year), plus $12.99/month ($129.99/year) per additional seat. Multi-seat plans require a signed claimant authorization for each claimant managed.</li>
+        <li>Paid plans are billed in advance on a recurring basis until canceled.</li>
         <li>You can cancel anytime; access continues until the end of the current billing period.</li>
         <li>Refunds are governed by our Refund Policy.</li>
       </ul>
+
+      <h2>Free trial</h2>
+      <p>
+        Pro includes one 14-day free trial per person. Trials are limited to one per
+        email address and payment method. Attempting to start a second trial will
+        result in immediate conversion to a paid Pro subscription.
+      </p>
+
+      <h2>Data retention</h2>
+      <p>
+        Work-search records are retained for 53 weeks from the end of each benefit
+        week. You will receive advance email notices before any records are deleted.
+        On account deletion, data is held for 30 days before permanent removal.
+      </p>
 
       <h2>Your content</h2>
       <p>

@@ -6,7 +6,7 @@ const columns = [
     title: "Product",
     links: [
       { label: "Features", href: "/features" },
-      { label: "How it works", href: "/how-it-works" },
+      { label: "How It Works", href: "/how-it-works" },
       { label: "Pricing", href: "/pricing" },
       { label: "FAQ", href: "/faq" },
     ],
@@ -31,22 +31,22 @@ const columns = [
 
 export function SiteFooter() {
   return (
-    <footer className="border-t border-border bg-muted/30">
+    <footer className="border-t border-border bg-surface">
       <div className="mx-auto max-w-6xl px-4 py-12 sm:px-6">
         <div className="grid gap-8 sm:grid-cols-2 md:grid-cols-4">
           <div>
-            <div className="flex items-center gap-2 font-semibold">
-              <span className="grid h-8 w-8 place-items-center rounded-md bg-primary text-primary-foreground text-sm font-bold">
-                IJT
+            <div className="flex items-center gap-2">
+              <span className="grid h-8 w-8 place-items-center border-2 border-white bg-primary text-primary-foreground text-sm font-black font-heading">
+                IL
               </span>
-              {site.name}
+              <span className="font-heading font-black text-sm">{site.name}</span>
             </div>
             <p className="mt-3 text-sm text-muted-foreground">{site.tagline}</p>
           </div>
 
           {columns.map((col) => (
             <div key={col.title}>
-              <h3 className="text-sm font-semibold">{col.title}</h3>
+              <h3 className="text-sm font-semibold font-heading">{col.title}</h3>
               <ul className="mt-3 space-y-2">
                 {col.links.map((l) => (
                   <li key={l.href}>
@@ -63,7 +63,7 @@ export function SiteFooter() {
           ))}
         </div>
 
-        <div className="mt-10 rounded-lg border border-border bg-background p-4 text-xs text-muted-foreground">
+        <div className="mt-10 border border-border bg-background p-4 text-xs text-muted-foreground">
           <strong className="text-foreground">Not a government service.</strong>{" "}
           {site.name} is an independent tool operated by {site.company}. It is not
           affiliated with, endorsed by, or connected to the Illinois Department of

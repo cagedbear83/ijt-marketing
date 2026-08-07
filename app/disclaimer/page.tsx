@@ -1,16 +1,20 @@
 import { site } from "@/lib/site";
-import { Section, PageHeader } from "@/components/ui-bits";
+import { Section } from "@/components/ui-bits";
 
 export const metadata = {
   title: "IDES Disclaimer",
-  description: "Illinois Job Tracker is an independent tool and is not affiliated with IDES.",
+  description: "Illinois UI Job Search Tracker is an independent tool and is not affiliated with IDES.",
 };
 
 export default function DisclaimerPage() {
   return (
     <>
       <Section className="pt-16 pb-8">
-        <PageHeader eyebrow="Important notice" title="Not a government service" />
+        <div className="mx-auto max-w-3xl text-center">
+          <h1 className="text-3xl font-black tracking-tight text-primary sm:text-4xl font-heading">
+            Not A Government Service
+          </h1>
+        </div>
       </Section>
 
       <Section className="py-8">

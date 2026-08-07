@@ -1,16 +1,20 @@
 import { site } from "@/lib/site";
-import { Section, PageHeader, Button } from "@/components/ui-bits";
+import { Section, Button } from "@/components/ui-bits";
 
 export const metadata = {
   title: "About",
-  description: "Why Illinois Job Tracker exists and who is behind it.",
+  description: "Why Illinois UI Job Search Tracker exists and who is behind it.",
 };
 
 export default function AboutPage() {
   return (
     <>
       <Section className="pt-16 pb-8">
-        <PageHeader eyebrow="About" title="Why we built this" />
+        <div className="mx-auto max-w-3xl text-center">
+          <h1 className="text-3xl font-black tracking-tight text-primary sm:text-4xl font-heading">
+            Why We Built This
+          </h1>
+        </div>
       </Section>
 
       <Section className="py-8">
@@ -29,9 +33,9 @@ export default function AboutPage() {
           </p>
           <p>
             The app is built and operated independently by {site.company}. We&apos;re
-            a small team focused on making one thing work really well. We&apos;re not
-            a law firm, and we&apos;re not affiliated with any government agency — we
-            just want the paperwork side of your job search to be the easy part.
+            focused on making one thing work really well. We&apos;re not a law firm,
+            and we&apos;re not affiliated with any government agency — we just want
+            the paperwork side of your job search to be the easy part.
           </p>
           <p>
             Have feedback or a feature request? We read everything. Reach us at{" "}
@@ -46,7 +50,7 @@ export default function AboutPage() {
         </div>
 
         <div className="mx-auto mt-10 max-w-2xl">
-          <Button href="/signup">Try it free</Button>
+          <Button href="/">Try It Free</Button>
         </div>
       </Section>
     </>
