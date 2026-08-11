@@ -19,6 +19,7 @@ export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
   const [serverError, setServerError] = useState("");
+  const [refNumber, setRefNumber] = useState("");
 
   const normalizePhone = (value: string) => value.replace(/\D/g, "");
 
@@ -75,6 +76,8 @@ export default function ContactPage() {
         const data = await res.json().catch(() => ({}));
         throw new Error(data?.detail || "Something went wrong. Please try again.");
       }
+      const data = await res.json();
+      setRefNumber(data.ref || "");
       setSubmitted(true);
     } catch (err: unknown) {
       setServerError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
@@ -111,10 +114,20 @@ export default function ContactPage() {
               <h2 className="text-xl font-black text-primary font-heading mb-2">
                 Thanks for reaching out!
               </h2>
+              {refNumber && (
+                <div className="my-4 border-l-4 border-primary bg-background px-4 py-3 text-left">
+                  <p className="text-xs text-muted-foreground mb-1">Your reference number</p>
+                  <p className="text-xl font-black tracking-widest text-primary font-heading">
+                    {refNumber}
+                  </p>
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Include this in any follow-up so we can find your submission quickly.
+                  </p>
+                </div>
+              )}
               <p className="text-sm text-muted-foreground">
-                We&apos;ve received your message and will get back to you within 2
-                business days. Check your inbox — we sent you a confirmation with a
-                recap of what you submitted.
+                We&apos;ll get back to you within 2 business days. Check your inbox — we
+                sent a confirmation with your reference number and a recap of what you submitted.
               </p>
             </div>
           ) : (
