@@ -4,7 +4,7 @@ import { useState } from "react";
 import { site } from "@/lib/site";
 import { Section } from "@/components/ui-bits";
 
-const BACKEND_URL = "https://illinois-ui-tracker-8wiwq.ondigitalocean.app/api";
+const BACKEND_URL = "";  // uses Next.js proxy at /api/contact
 
 export default function ContactPage() {
   const [form, setForm] = useState({
@@ -59,7 +59,7 @@ export default function ContactPage() {
     setSubmitting(true);
     setServerError("");
     try {
-      const res = await fetch(`${BACKEND_URL}/contact`, {
+      const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
