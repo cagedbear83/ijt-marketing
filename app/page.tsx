@@ -179,7 +179,7 @@ export default function HomePage() {
             Start free today. Pro includes a 14-day free trial — upgrade whenever you're ready.
           </p>
           <div className="mt-6">
-            <Button href="https://illinoisjobtracker.app/register" variant="outline">
+            <Button href="https://illinoisjobtracker.app/register" variant="white">
               Create your free account
             </Button>
           </div>

@@ -50,13 +50,15 @@ export function Button({
 }: {
   href: string;
   children: ReactNode;
-  variant?: "primary" | "outline";
+  variant?: "primary" | "outline" | "white";
 }) {
   const base =
     "inline-flex items-center justify-center rounded-md px-5 py-2.5 text-sm font-medium transition";
   const styles =
     variant === "primary"
       ? "bg-primary text-primary-foreground hover:opacity-90"
+      : variant === "white"
+      ? "border-2 border-white text-white hover:bg-white hover:text-primary"
       : "border border-border text-foreground hover:bg-muted";
   return (
     <Link href={href} className={`${base} ${styles}`}>
