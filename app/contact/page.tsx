@@ -4,6 +4,8 @@ import { useState } from "react";
 import { site } from "@/lib/site";
 import { Section } from "@/components/ui-bits";
 
+const BACKEND_URL = "https://illinois-ui-tracker-8wiwq.ondigitalocean.app/api";
+
 export default function ContactPage() {
   const [form, setForm] = useState({
     firstName: "",
@@ -16,10 +18,9 @@ export default function ContactPage() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [serverError, setServerError] = useState("");
 
-  const normalizePhone = (value: string) => {
-    return value.replace(/\D/g, "");
-  };
+  const normalizePhone = (value: string) => value.replace(/\D/g, "");
 
   const validate = () => {
     const e: Record<string, string> = {};
@@ -45,28 +46,47 @@ export default function ContactPage() {
   ) => {
     const { name, value } = e.target;
     setForm((prev) => ({ ...prev, [name]: value }));
-    if (errors[name]) {
-      setErrors((prev) => ({ ...prev, [name]: "" }));
-    }
+    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
+    if (serverError) setServerError("");
   };
 
-  const handleSubmit = async (e: React.MouseEvent) => {
-    e.preventDefault();
+  const handleSubmit = async () => {
     const validationErrors = validate();
     if (Object.keys(validationErrors).length > 0) {
       setErrors(validationErrors);
       return;
     }
     setSubmitting(true);
-    // Simulate submission — wire to your backend or a form service later
-    await new Promise((resolve) => setTimeout(resolve, 800));
-    setSubmitting(false);
-    setSubmitted(true);
+    setServerError("");
+    try {
+      const res = await fetch(`${BACKEND_URL}/contact`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          first_name: form.firstName,
+          last_name: form.lastName,
+          email: form.email,
+          phone: form.phone,
+          reason: form.reason,
+          message: form.message,
+        }),
+      });
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        throw new Error(data?.detail || "Something went wrong. Please try again.");
+      }
+      setSubmitted(true);
+    } catch (err: unknown) {
+      setServerError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   const inputClass =
     "w-full border border-border bg-background px-3 py-2 text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:border-primary";
-  const labelClass = "block text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1";
+  const labelClass =
+    "block text-xs font-semibold uppercase tracking-widest text-muted-foreground mb-1";
   const errorClass = "mt-1 text-xs text-danger";
 
   return (
@@ -92,14 +112,14 @@ export default function ContactPage() {
                 Thanks for reaching out!
               </h2>
               <p className="text-sm text-muted-foreground">
-                We&apos;ve received your message and will get back to you within
-                2 business days at the email address you provided.
+                We&apos;ve received your message and will get back to you within 2
+                business days. Check your inbox — we sent you a confirmation with a
+                recap of what you submitted.
               </p>
             </div>
           ) : (
             <div className="border border-border p-8">
               <div className="grid grid-cols-2 gap-4">
-                {/* First Name */}
                 <div>
                   <label className={labelClass}>First Name</label>
                   <input
@@ -112,8 +132,6 @@ export default function ContactPage() {
                   />
                   {errors.firstName && <p className={errorClass}>{errors.firstName}</p>}
                 </div>
-
-                {/* Last Name */}
                 <div>
                   <label className={labelClass}>Last Name</label>
                   <input
@@ -128,7 +146,6 @@ export default function ContactPage() {
                 </div>
               </div>
 
-              {/* Email */}
               <div className="mt-4">
                 <label className={labelClass}>Contact Email Address</label>
                 <input
@@ -142,7 +159,6 @@ export default function ContactPage() {
                 {errors.email && <p className={errorClass}>{errors.email}</p>}
               </div>
 
-              {/* Phone */}
               <div className="mt-4">
                 <label className={labelClass}>Phone Number</label>
                 <input
@@ -159,7 +175,6 @@ export default function ContactPage() {
                 </p>
               </div>
 
-              {/* Reason */}
               <div className="mt-4">
                 <label className={labelClass}>Reason For Reaching Out</label>
                 <select
@@ -169,17 +184,16 @@ export default function ContactPage() {
                   className={inputClass}
                 >
                   <option value="">Select a reason...</option>
-                  <option value="billing">Billing</option>
-                  <option value="account">Account</option>
-                  <option value="general">General Questions</option>
-                  <option value="feedback">Feedback</option>
-                  <option value="feature">Request a Feature</option>
-                  <option value="other">Other</option>
+                  <option value="Billing">Billing</option>
+                  <option value="Account">Account</option>
+                  <option value="General Questions">General Questions</option>
+                  <option value="Feedback">Feedback</option>
+                  <option value="Request a Feature">Request a Feature</option>
+                  <option value="Other">Other</option>
                 </select>
                 {errors.reason && <p className={errorClass}>{errors.reason}</p>}
               </div>
 
-              {/* Message */}
               <div className="mt-4">
                 <label className={labelClass}>Message</label>
                 <textarea
@@ -193,7 +207,12 @@ export default function ContactPage() {
                 {errors.message && <p className={errorClass}>{errors.message}</p>}
               </div>
 
-              {/* Submit */}
+              {serverError && (
+                <div className="mt-4 border border-danger/30 bg-danger/5 px-4 py-3 text-sm text-danger">
+                  {serverError}
+                </div>
+              )}
+
               <div className="mt-6">
                 <button
                   onClick={handleSubmit}
