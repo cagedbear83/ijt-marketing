@@ -61,6 +61,36 @@ export default function PrivacyPage() {
         secure, but we work to protect your information.
       </p>
 
+      <h2>SMS communications</h2>
+      <p>
+        If you opt in to SMS reminders in {site.name}, here is how we handle
+        that data:
+      </p>
+      <ul>
+        <li>
+          <strong>Collection:</strong> we collect your mobile phone number
+          only when you affirmatively opt in, and verify it with a one-time
+          passcode before any messages are sent.
+        </li>
+        <li>
+          <strong>Usage:</strong> your phone number is used solely to send
+          the SMS reminders you opted into.
+        </li>
+        <li>
+          <strong>Sharing:</strong> we do not sell or share your mobile phone
+          number with third parties for their marketing purposes. We share it
+          only with our SMS delivery provider (ClickSend), solely to transmit
+          your messages.
+        </li>
+        <li>
+          <strong>Opt-out:</strong> reply STOP to any message at any time, or
+          disable SMS reminders from your account settings.
+        </li>
+        <li>
+          <strong>Rates:</strong> message and data rates may apply.
+        </li>
+      </ul>
+
       <h2>Children</h2>
       <p>The Service is not directed to anyone under 18, and we do not knowingly collect their information.</p>
 

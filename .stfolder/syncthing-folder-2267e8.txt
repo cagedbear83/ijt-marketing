@@ -1,0 +1,5 @@
+# This directory is a Syncthing folder marker.
+# Do not delete.
+
+folderID: 5nppu-nelyq
+created: 2026-08-16T00:16:01-05:00

@@ -80,6 +80,29 @@ export default function TermsPage() {
         paid us in the twelve months before the claim.
       </p>
 
+      <h2>SMS text messaging terms</h2>
+      <p>
+        By providing your mobile phone number and opting in within the Service,
+        you agree that {site.company} may send you periodic SMS and/or MMS
+        messages related to your work-search reminders and account
+        notifications.
+      </p>
+      <ul>
+        <li>Message frequency varies.</li>
+        <li>Message and data rates may apply.</li>
+        <li>
+          You may opt out at any time by replying STOP to any message. You may
+          receive a subsequent message confirming your opt-out.
+        </li>
+        <li>
+          For help, reply HELP to any message or contact us at{" "}
+          {site.supportEmail}. See our Privacy Policy for how we handle
+          information collected in connection with SMS messaging.
+        </li>
+        <li>Carriers are not liable for delayed or undelivered messages.</li>
+        <li>You agree to notify us of any change to your mobile number.</li>
+      </ul>
+
       <h2>Termination</h2>
       <p>We may suspend or end accounts that violate these Terms. You may stop using the Service at any time.</p>
 
