@@ -66,7 +66,7 @@ export default function HomePage() {
             {site.tagline}
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button appPath="/register">
+            <Button appPath="/sign-up">
               Get started free
             </Button>
             <Button href="/how-it-works" variant="outline">
@@ -179,7 +179,7 @@ export default function HomePage() {
             Start free today. Pro includes a 14-day free trial — upgrade whenever you're ready.
           </p>
           <div className="mt-6">
-            <Button appPath="/register" variant="white">
+            <Button appPath="/sign-up" variant="white">
               Create your free account
             </Button>
           </div>

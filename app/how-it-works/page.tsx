@@ -59,7 +59,7 @@ export default function HowItWorksPage() {
         </ol>
 
         <div className="mt-10 text-center">
-          <Button appPath="/register">Start Free</Button>
+          <Button appPath="/sign-up">Start Free</Button>
         </div>
       </Section>
     </>

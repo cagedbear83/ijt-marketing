@@ -68,7 +68,7 @@ export const plans: Plan[] = [
     cadence: "forever",
     blurb: "Get started logging your work-search contacts at no cost.",
     cta: "Get started free",
-    ctaHref: "/register",
+    ctaHref: "/sign-up",
     features: [
       "1 claimant profile (your own)",
       "Log work-search contacts",
@@ -88,7 +88,7 @@ export const plans: Plan[] = [
     cadence: "per month",
     blurb: "Everything you need to stay compliant and never miss a deadline.",
     cta: "Start Pro",
-    ctaHref: "/register?plan=pro",
+    ctaHref: "/sign-up?plan=pro",
     featured: true,
     features: [
       "1 claimant profile (your own)",
@@ -113,7 +113,7 @@ export const plans: Plan[] = [
     cadence: "per month · first seat",
     blurb: "For professionals managing work-search compliance for multiple claimants.",
     cta: "Start Case Worker",
-    ctaHref: "/register?plan=caseworker",
+    ctaHref: "/sign-up?plan=caseworker",
     featured: false,
     seatNote: "Additional seats $12.99/mo or $129.99/yr each",
     features: [

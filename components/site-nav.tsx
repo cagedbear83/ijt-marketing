@@ -50,13 +50,13 @@ export function SiteNav() {
             )}
           </button>
           <AppLink
-            path="/login"
+            path="/sign-in"
             className="hidden px-3 py-2 text-sm font-medium text-muted-foreground transition-colors hover:text-foreground sm:block"
           >
             Sign In
           </AppLink>
           <AppLink
-            path="/register"
+            path="/sign-up"
             className="bg-primary px-3 py-2 text-sm font-semibold text-primary-foreground transition-opacity hover:opacity-90"
           >
             Get Started
@@ -86,7 +86,7 @@ export function SiteNav() {
             </Link>
           ))}
           <AppLink
-            path="/login"
+            path="/sign-in"
             className="block py-2 text-sm font-medium text-muted-foreground hover:text-foreground sm:hidden"
           >
             Sign In

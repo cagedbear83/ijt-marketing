@@ -59,7 +59,7 @@ export function SiteFooter() {
                     every page — the same way the app footer links back here. */}
                 {col.title === "Product" && (
                   <li>
-                    <AppLink path="/login" className={linkClass}>
+                    <AppLink path="/sign-in" className={linkClass}>
                       Sign In
                     </AppLink>
                   </li>
@@ -72,10 +72,11 @@ export function SiteFooter() {
         <div className="mt-10 border border-border bg-background p-4 text-xs text-muted-foreground">
           <strong className="text-foreground">Not a government service.</strong>{" "}
           {site.name} is an independent tool operated by {site.company}. It is not
-          affiliated with, endorsed by, or connected to the Illinois Department of
-          Employment Security (IDES) or any government agency. You are solely
-          responsible for the accuracy and timeliness of any information you submit
-          to IDES.
+          affiliated with, endorsed by, sponsored by, or in any way officially 
+          connected to the Illinois Department of Employment Security (IDES), the
+          State of Illinois, or any federal, state, or local government agency.
+          You are solely responsible for ensuring the accuracy and timeliness of 
+          any information you submit to IDES. Always verify your compliance with IDES.
         </div>
 
         <p className="mt-6 text-xs text-muted-foreground">

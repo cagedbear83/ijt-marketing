@@ -1,5 +1,18 @@
 {
+  "/api/contact/route": "app/api/contact/route.js",
+  "/contact/page": "app/contact/page.js",
   "/page": "app/page.js",
+  "/pricing/page": "app/pricing/page.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
   "/_not-found/page": "app/_not-found/page.js",
-  "/pricing/page": "app/pricing/page.js"
+  "/about/page": "app/about/page.js",
+  "/disclaimer/page": "app/disclaimer/page.js",
+  "/features/page": "app/features/page.js",
+  "/faq/page": "app/faq/page.js",
+  "/how-it-works/page": "app/how-it-works/page.js",
+  "/refunds/page": "app/refunds/page.js",
+  "/unsubscribe/page": "app/unsubscribe/page.js",
+  "/privacy/page": "app/privacy/page.js",
+  "/terms/page": "app/terms/page.js"
 }
