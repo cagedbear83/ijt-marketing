@@ -1,5 +1,6 @@
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { AppLink } from "@/components/app-link";
 
 export function Section({
   children,
@@ -45,10 +46,14 @@ export function PageHeader({
 
 export function Button({
   href,
+  appPath,
   children,
   variant = "primary",
 }: {
-  href: string;
+  /** Internal marketing route. */
+  href?: string;
+  /** Path on illinoisjobtracker.app — carries the visitor theme across. */
+  appPath?: string;
   children: ReactNode;
   variant?: "primary" | "outline" | "white";
 }) {
@@ -60,8 +65,16 @@ export function Button({
       : variant === "white"
       ? "border-2 border-white text-white hover:bg-white hover:text-primary"
       : "border border-border text-foreground hover:bg-muted";
+  const className = `${base} ${styles}`;
+  if (appPath) {
+    return (
+      <AppLink path={appPath} className={className}>
+        {children}
+      </AppLink>
+    );
+  }
   return (
-    <Link href={href} className={`${base} ${styles}`}>
+    <Link href={href ?? "/"} className={className}>
       {children}
     </Link>
   );

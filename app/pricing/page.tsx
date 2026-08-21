@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { AppLink } from "@/components/app-link";
 import { useState } from "react";
 import { plans } from "@/lib/site";
 import { Section, Check } from "@/components/ui-bits";
@@ -77,12 +78,12 @@ export default function PricingPage() {
                     : "\u00A0"}
                 </p>
               </div>
-              <Link
-                href={plan.ctaHref}
+              <AppLink
+                path={plan.ctaHref}
                 className={`mt-4 block px-4 py-2.5 text-center text-sm font-semibold transition-colors ${plan.featured ? "bg-primary text-primary-foreground hover:bg-primary-hover" : "border border-border text-foreground hover:bg-surface"}`}
               >
                 {plan.cta}
-              </Link>
+              </AppLink>
               <ul className="mt-6 flex-1 space-y-3">
                 {plan.features.map((f) => (
                   <li key={f} className="flex gap-2 text-sm">

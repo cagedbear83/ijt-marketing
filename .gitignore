@@ -1,4 +1,11 @@
 .DS_Store
 **/.DS_Store
-
 node_modules/
+
+# Next.js build output. This was previously committed — run
+#   git rm -r --cached .next
+# once to stop tracking the ~70 stale build artifacts still in the index.
+.next/
+out/
+
+.env*.local

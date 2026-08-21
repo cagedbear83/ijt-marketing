@@ -59,7 +59,7 @@ export default function HowItWorksPage() {
         </ol>
 
         <div className="mt-10 text-center">
-          <Button href="https://illinoisjobtracker.app/register">Start Free</Button>
+          <Button appPath="/register">Start Free</Button>
         </div>
       </Section>
     </>

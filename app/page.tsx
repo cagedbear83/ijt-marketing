@@ -66,7 +66,7 @@ export default function HomePage() {
             {site.tagline}
           </p>
           <div className="mt-8 flex flex-wrap justify-center gap-3">
-            <Button href="https://illinoisjobtracker.app/register">
+            <Button appPath="/register">
               Get started free
             </Button>
             <Button href="/how-it-works" variant="outline">
@@ -179,7 +179,7 @@ export default function HomePage() {
             Start free today. Pro includes a 14-day free trial — upgrade whenever you're ready.
           </p>
           <div className="mt-6">
-            <Button href="https://illinoisjobtracker.app/register" variant="white">
+            <Button appPath="/register" variant="white">
               Create your free account
             </Button>
           </div>

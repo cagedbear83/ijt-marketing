@@ -3,7 +3,9 @@
 
 export const site = {
   name: "Illinois Job Tracker",
-  domain: "illinoisjobtracker.app",
+  // This site. Used for canonical URLs and metadataBase — previously (and
+  // wrongly) pointed at the app domain, which made .com declare .app canonical.
+  domain: "illinoisjobtracker.com",
   tagline: "Track your weekly work-search contacts and generate your ADJ034F — without the spreadsheet.",
   supportEmail: "support@illinoisjobtracker.com",
   privacyEmail: "privacy@illinoisjobtracker.com",
@@ -11,6 +13,28 @@ export const site = {
   company: "KMG123 Enterprises LLC",
   appUrl: "https://illinoisjobtracker.app",
 } as const;
+
+/** Absolute URL to a page on the app. */
+export function appUrl(path = "/") {
+  return `${site.appUrl}${path}`;
+}
+
+/**
+ * Same, but carrying an explicit light/dark choice across to the app.
+ *
+ * .com and .app are separate registrable domains, so they cannot share a
+ * cookie or localStorage. When a visitor has actively picked a theme here, the
+ * choice rides along in the URL and the app applies it before first paint (see
+ * the inline script in the app index.html). "system" is deliberately left off —
+ * the app resolves that itself.
+ */
+export function appUrlWithTheme(path: string, theme: string | undefined) {
+  if (theme !== "light" && theme !== "dark") return appUrl(path);
+  return `${appUrl(path)}${path.includes("?") ? "&" : "?"}theme=${theme}`;
+}
+
+// next-themes storage key, matching THEME_STORAGE_KEY in the app.
+export const THEME_STORAGE_KEY = "ijt-theme";
 
 export const nav = [
   { label: "Features", href: "/features" },
@@ -44,7 +68,7 @@ export const plans: Plan[] = [
     cadence: "forever",
     blurb: "Get started logging your work-search contacts at no cost.",
     cta: "Get started free",
-    ctaHref: "https://illinoisjobtracker.app/register",
+    ctaHref: "/register",
     features: [
       "1 claimant profile (your own)",
       "Log work-search contacts",
@@ -64,7 +88,7 @@ export const plans: Plan[] = [
     cadence: "per month",
     blurb: "Everything you need to stay compliant and never miss a deadline.",
     cta: "Start Pro",
-    ctaHref: "https://illinoisjobtracker.app/register?plan=pro",
+    ctaHref: "/register?plan=pro",
     featured: true,
     features: [
       "1 claimant profile (your own)",
@@ -89,7 +113,7 @@ export const plans: Plan[] = [
     cadence: "per month · first seat",
     blurb: "For professionals managing work-search compliance for multiple claimants.",
     cta: "Start Case Worker",
-    ctaHref: "https://illinoisjobtracker.app/register?plan=caseworker",
+    ctaHref: "/register?plan=caseworker",
     featured: false,
     seatNote: "Additional seats $12.99/mo or $129.99/yr each",
     features: [

@@ -108,7 +108,7 @@ export default function FeaturesPage() {
         </p>
         <div className="mt-6 flex flex-wrap justify-center gap-3">
           <Button href="/pricing">View pricing</Button>
-          <Button href="https://illinoisjobtracker.app/register" variant="outline">
+          <Button appPath="/register" variant="outline">
             Get started free
           </Button>
         </div>
