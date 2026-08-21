@@ -2,10 +2,12 @@
 // Edit here — pages read from this file automatically.
 
 export const site = {
-  name: "Illinois UI Job Search Tracker",
+  name: "Illinois Job Tracker",
   domain: "illinoisjobtracker.app",
   tagline: "Track your weekly work-search contacts and generate your ADJ034F — without the spreadsheet.",
-  supportEmail: "support@illinoisjobtracker.app",
+  supportEmail: "support@illinoisjobtracker.com",
+  privacyEmail: "privacy@illinoisjobtracker.com",
+  termsEmail: "terms@illinoisjobtracker.com",
   company: "KMG123 Enterprises LLC",
   appUrl: "https://illinoisjobtracker.app",
 } as const;
@@ -111,7 +113,7 @@ export const plans: Plan[] = [
 export const faqs = [
   {
     q: "Is this affiliated with IDES or the State of Illinois?",
-    a: "No. Illinois UI Job Search Tracker is an independent, third-party tool. It is not affiliated with, endorsed by, or connected to the Illinois Department of Employment Security (IDES) or any government agency. You are always responsible for the accuracy of what you submit to IDES.",
+    a: "No. Illinois Job Tracker is an independent, third-party tool. It is not affiliated with, endorsed by, or connected to the Illinois Department of Employment Security (IDES) or any government agency. You are always responsible for the accuracy of what you submit to IDES.",
   },
   {
     q: "What is the ADJ034F form?",

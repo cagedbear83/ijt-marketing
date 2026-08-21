@@ -3,7 +3,7 @@ import { Section, Button } from "@/components/ui-bits";
 export const metadata = {
   title: "How It Works",
   description:
-    "See how Illinois UI Job Search Tracker helps you log contacts and generate your ADJ034F in four steps.",
+    "See how Illinois Job Tracker helps you log contacts and generate your ADJ034F in four steps.",
 };
 
 const steps = [

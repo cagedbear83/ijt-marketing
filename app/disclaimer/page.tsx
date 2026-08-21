@@ -3,7 +3,7 @@ import { Section } from "@/components/ui-bits";
 
 export const metadata = {
   title: "IDES Disclaimer",
-  description: "Illinois UI Job Search Tracker is an independent tool and is not affiliated with IDES.",
+  description: "Illinois Job Tracker is an independent tool and is not affiliated with IDES.",
 };
 
 export default function DisclaimerPage() {

@@ -3,7 +3,7 @@ import { Section, Button } from "@/components/ui-bits";
 
 export const metadata = {
   title: "About",
-  description: "Why Illinois UI Job Search Tracker exists and who is behind it.",
+  description: "Why Illinois Job Tracker exists and who is behind it.",
 };
 
 export default function AboutPage() {

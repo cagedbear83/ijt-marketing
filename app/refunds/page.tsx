@@ -39,7 +39,7 @@ export default function RefundsPage() {
       <p>
         If you choose to cancel your subscription, you will retain access to your
         premium features until the end of your current billing period. Keep in mind,
-        deleting a profile or the Illinois UI Job Search Tracker app will not
+        deleting a profile or the Illinois Job Tracker app will not
         automatically cancel any subscription — you&apos;ll need to cancel the
         subscription manually from your account settings.
       </p>

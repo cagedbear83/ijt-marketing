@@ -4,7 +4,7 @@ import { Section, Button } from "@/components/ui-bits";
 
 export const metadata = {
   title: "Unsubscribe",
-  description: "Manage your email preferences for Illinois UI Job Search Tracker.",
+  description: "Manage your email preferences for Illinois Job Tracker.",
 };
 
 export default function UnsubscribePage() {
@@ -24,7 +24,7 @@ export default function UnsubscribePage() {
 
           <p className="mt-4 text-muted-foreground">
             We&apos;ve removed you from this mailing list. You won&apos;t receive
-            any further emails from Illinois UI Job Search Tracker at this address.
+            any further emails from Illinois Job Tracker at this address.
           </p>
 
           {/* Info box */}

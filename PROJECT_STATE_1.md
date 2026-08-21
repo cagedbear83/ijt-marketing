@@ -1,4 +1,4 @@
-# Illinois UI Job Search Tracker — Project State
+# Illinois Job Tracker — Project State
 **Owner:** Kyle Gagen — KMG123 Enterprises LLC  
 **Last Updated:** August 11, 2026  
 **Version:** 1.1

@@ -3,7 +3,7 @@ import { Section, PageHeader, Button } from "@/components/ui-bits";
 export const metadata = {
   title: "Features",
   description:
-    "Everything Illinois UI Job Search Tracker does to help you log work-search contacts, stay compliant, and generate your ADJ034F.",
+    "Everything Illinois Job Tracker does to help you log work-search contacts, stay compliant, and generate your ADJ034F.",
 };
 
 const groups = [
