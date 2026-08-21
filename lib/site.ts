@@ -137,35 +137,35 @@ export const plans: Plan[] = [
 export const faqs = [
   {
     q: "Is this affiliated with IDES or the State of Illinois?",
-    a: "No. Illinois Job Tracker is an independent, third-party tool. It is not affiliated with, endorsed by, or connected to the Illinois Department of Employment Security (IDES) or any government agency. You are always responsible for the accuracy of what you submit to IDES.",
+    a: "No. Illinois Job Tracker is an independent, third-party tool. It is not affiliated with, endorsed by, or connected to the Illinois Department of Employment Security (IDES), the State of Illinois, or any government agency.",
   },
   {
     q: "What is the ADJ034F form?",
-    a: "It's the official Illinois work-search record form. Many claimants are required to document their weekly job-search contacts and be able to produce this record if IDES asks. The app generates this form automatically from the contacts you've logged.",
+    a: "It's the official IDES work search record form. Illinois UI benefits Claimants are required to document their weekly job-search contacts and be able to produce this record when IDES asks. The app generates this form automatically from the contacts you've logged.",
   },
   {
     q: "How many job contacts do I need each week?",
-    a: "IDES sets the requirement, and it can change. Check your official IDES correspondence for the number that applies to you. The app lets you track your progress toward your weekly requirement.",
+    a: "IDES sets the requirement, and it can change. Check your official IDES correspondence for the number that applies to you. The app lets you track your progress toward your weekly requirement and beyond..",
   },
   {
     q: "How long is my data kept?",
-    a: "Work-search records are retained for 53 weeks from the end of each benefit week — consistent with IDES's own record-lookback period. You'll receive email reminders at 14 days, 7 days, and 24 hours before any records are due to be deleted, with a direct link to export your data first.",
+    a: "Work-search records are retained for 53 weeks from the end of each benefit week — consistent with IDES's own audit window. You'll receive email reminders, before any records are due to be deleted, with a direct link to export your data first.",
   },
   {
     q: "How does the AI screenshot import work?",
-    a: "On Pro and Case Worker plans, you can upload a screenshot of a job listing or application confirmation. The app reads the employer, position, and date and pre-fills the contact for you to review before saving.",
+    a: "On Pro and Case Worker plans, this feature uses Optical Character Recognition (OCR) and AI to scan screenshots of a job listing (such as an INdeed confirmation screen or an email receipt).It extracts the relevant text - like the company name, date, and job title - and automatically logs it into the work search contact form, saving you the trouble of manual data entry.",
   },
   {
     q: "What is the Case Worker plan?",
-    a: "The Case Worker plan is designed for social workers, nonprofits, and organizations managing work-search compliance on behalf of multiple unemployment claimants. Each seat gives one case worker their own login and unlimited claimant management. A signed claimant authorization is required before managing any individual's data.",
+    a: "The Case Worker tier is designed for social workers, career counselors, or nonprofit staff. It allows a single professinal to monitor, manage, and easily export te job search compliance logs of multiple clients at once to ensure they are meeting their unemployemnt requirements. Each seat gives one case worker their own login and claimant management. A signed claimant authorization is required before managing any individual's data.",
   },
   {
     q: "Can I try Pro before paying?",
-    a: "Yes. Pro comes with a 14-day free trial. A card is required upfront and you won't be charged until the trial ends. Cancel anytime before day 15 and you won't be billed.",
+    a: "Yes. Pro comes with a 14-day free trial. Although a debit/credit-card is required upfront, you may cancel any time prior to the end of the trial and you won't be billed.",
   },
   {
     q: "Can I cancel anytime?",
-    a: "Yes. Cancel from your account settings and keep your plan's features until the end of your current billing period. See our Refund Policy for details.",
+    a: "Yes. You may cancel anytime you wish by selectying 'Cancel Subscription' inside your Profile page. You'll continue to have access to the paid features until the end of the current billing period. Keep in mind, deleting a profile will not automatically cancel your subscription - you'll need ot cancel the subscription manually.",
   },
   {
     q: "Is my data private?",

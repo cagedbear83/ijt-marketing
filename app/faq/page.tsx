@@ -1,5 +1,5 @@
 import { faqs } from "@/lib/site";
-import { Section, PageHeader } from "@/components/ui-bits";
+import { Section } from "@/components/ui-bits";
 
 export const metadata = {
   title: "FAQ",
@@ -10,7 +10,14 @@ export default function FaqPage() {
   return (
     <>
       <Section className="pt-16 pb-8">
-        <PageHeader eyebrow="FAQ" title="Questions, answered" />
+        <div className="mx-auto max-w-3xl text-center">
+          <h1 className="text-3xl font-black tracking-tight text-primary sm:text-4xl font-heading">
+            Questions, answered
+          </h1>
+          <p className="mt-4 text-lg text-muted-foreground">
+            Common questions about Illinois Job Tracker, the ADJ034F, and how the app works.
+          </p>
+        </div>
       </Section>
 
       <Section className="py-8">
