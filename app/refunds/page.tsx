@@ -54,7 +54,7 @@ export default function RefundsPage() {
 
       <h2>How to Cancel</h2>
       <p>
-        Log in to your account, go to your account settings, and cancel your
+        Log in to your account, go to your profile page, and click cancel your
         subscription from the billing section. For assistance, contact us at{" "}
         <a href={`mailto:${site.supportEmail}`} className="text-foreground underline">
           {site.supportEmail}
