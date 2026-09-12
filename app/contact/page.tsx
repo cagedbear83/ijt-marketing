@@ -14,6 +14,7 @@ export default function ContactPage() {
     phone: "",
     reason: "",
     message: "",
+    errorMessage: "",
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
@@ -60,17 +61,21 @@ export default function ContactPage() {
     setSubmitting(true);
     setServerError("");
     try {
+      const body: Record<string, string> = {
+        first_name: form.firstName,
+        last_name: form.lastName,
+        email: form.email,
+        phone: form.phone,
+        reason: form.reason,
+        message: form.message,
+      };
+      if (form.reason === "Technical Support" && form.errorMessage.trim()) {
+        body.error_message = form.errorMessage.trim();
+      }
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          first_name: form.firstName,
-          last_name: form.lastName,
-          email: form.email,
-          phone: form.phone,
-          reason: form.reason,
-          message: form.message,
-        }),
+        body: JSON.stringify(body),
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
@@ -197,6 +202,7 @@ export default function ContactPage() {
                   className={inputClass}
                 >
                   <option value="">Select a reason...</option>
+                  <option value="Technical Support">Technical Support</option>
                   <option value="Billing">Billing</option>
                   <option value="Account">Account</option>
                   <option value="General Questions">General Questions</option>
@@ -206,6 +212,29 @@ export default function ContactPage() {
                 </select>
                 {errors.reason && <p className={errorClass}>{errors.reason}</p>}
               </div>
+
+              {form.reason === "Technical Support" && (
+                <div className="mt-4">
+                  <label className={labelClass}>
+                    Error Message{" "}
+                    <span className="normal-case font-normal tracking-normal text-muted-foreground">
+                      (optional)
+                    </span>
+                  </label>
+                  <input
+                    type="text"
+                    name="errorMessage"
+                    value={form.errorMessage}
+                    onChange={handleChange}
+                    className={inputClass}
+                    placeholder="e.g. Network Error, Error 504, Error 502…"
+                  />
+                  <p className="mt-1 text-xs text-muted-foreground">
+                    Copy the exact message that appeared on screen — it helps us
+                    find the problem faster.
+                  </p>
+                </div>
+              )}
 
               <div className="mt-4">
                 <label className={labelClass}>Message</label>

@@ -10,10 +10,24 @@ export async function POST(req: NextRequest) {
   try {
     const body = await req.json();
 
+    // Forward all fields the frontend may send, including the optional
+    // error_message field that appears when "Technical Support" is selected.
+    const payload: Record<string, string> = {
+      first_name: body.first_name ?? "",
+      last_name: body.last_name ?? "",
+      email: body.email ?? "",
+      phone: body.phone ?? "",
+      reason: body.reason ?? "",
+      message: body.message ?? "",
+    };
+    if (body.error_message) {
+      payload.error_message = body.error_message;
+    }
+
     const backendRes = await fetch(BACKEND, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(body),
+      body: JSON.stringify(payload),
     });
 
     const data = await backendRes.json().catch(() => ({}));
